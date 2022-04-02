@@ -9,7 +9,7 @@ class Profile(models.Model):
 
     website      =  models.EmailField(max_length=254)
     biography    =  models.TextField()
-    phone_numbre =  models.CharField(max_length=50, blank=True, null=True)
+    phone_number =  models.CharField(max_length=50, blank=True, null=True)
 
     picture = models.ImageField(upload_to='users/pictures/', blank=True, null=True)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
