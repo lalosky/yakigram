@@ -54,6 +54,8 @@ robots.txt
 ### compiled css files ###
 static/css/master.css
 
+media/
+
 ### compiled js files ###
 hb/static/js/coffee/*.js
 
