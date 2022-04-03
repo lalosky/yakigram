@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate ,logout
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -13,3 +14,8 @@ def login_view(request):
         else:
             return render(request, 'users/login.html', {'error':'Clave invalidad o usuario'})
     return render(request, 'users/login.html')
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('login_view')
