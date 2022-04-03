@@ -24,7 +24,8 @@ from users import views as users_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', posts_views.list_posts, name= 'list_posts'),
-    path('users/login/', users_views.login_view, name= 'login_view')
+    path('users/login/', users_views.login_view, name= 'login_view'),
+    path('users/logout/', users_views.logout_view, name= 'logout_view')
 
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
