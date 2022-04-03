@@ -16,7 +16,7 @@ def signup(request):
             username = request.POST['username']
             password= request.POST['passwd']
             
-            user = User(username= username, password = password)
+            user = User.objects.create_user(username= username, password = password)
             
             user.first_name = request.POST['first_name']
             user.last_name = request.POST['last_name']
@@ -25,7 +25,7 @@ def signup(request):
                 user.save()
                 profile = Profile(user = user)
                 profile.save()
-                return redirect('list_posts')
+                return redirect('login_view')
             except IntegrityError:      
                 return render(request, 'users/signup.html', {'error':'usuario ya esta en uso'})        
             
