@@ -5,8 +5,7 @@ from django.db import models
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    user         =  models.OneToOneField(User, on_delete=models.CASCADE)
     website      =  models.URLField(max_length=254)
     biography    =  models.TextField()
     phone_number =  models.CharField(max_length=50, blank=True, null=True)
