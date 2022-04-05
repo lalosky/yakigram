@@ -11,7 +11,7 @@ from users.forms import ProfileForm
 
 def update_profile(request):
     """Update a user's profile view."""
-    print('VIEW UPDATA_PROFILE')
+    print('ENTRANDO VIEW UPDATA_PROFILE')
     profile = request.user.profile
 
     if request.method == 'POST':
@@ -24,12 +24,12 @@ def update_profile(request):
             profile.biography = data['biography']
             profile.picture = data['picture']
             profile.save()
-
-            return redirect('update_profile')
+            
+            return redirect('list_posts')
 
     else:
         form = ProfileForm()
-
+    print('SALIENDO VIEW UPDATA_PROFILE')
     return render(
         request=request,
         template_name='users/update_profile.html',
